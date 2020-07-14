@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yaejin' Devlog</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+  <div id="layout">
+
+
+    <nav>
+      <ol>
+        <li class="title">What to Study</li>
+        <li>HTML</li>
+        <li>JavaScript</li>
+        <li>TypeScript</li>
+        <li>{{subject}}</li>
+      </ol>
+    </nav>
+
+
+    <main id="content"></main>
+
+  </div>
+
+  <script>
+    const layout = new Vue({
+      el: '#layout',
+      data: {
+        subject: 'Vue.js'
+
+      }
+
+
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+code {
+  height: 23px;
+  font-size: 17px;
+  background-color: #fcfffe;
+  display: inline-block;
+  padding: 3px 10px;
+  color: #396971;
+}
+
+pre {
+  font-size: 16px;
+  line-height: 20px;
+  display: contents;
+}
+
+h2 {
+  margin-top: 30px;
+  padding: 10px;
+  border-left: 15px solid #bbff6c;
+}
+
+attr {
+
+  font-size: 17px;
+  font-weight: 600;
+  display: inline-block;
+  padding: 0 7px;
+  border: 1px solid #ca15bc;
+  height: 26px;
+  color: #943f8d;
+  background-color: #fdfaff;
+  margin: 0 5px;
+  border-radius: 2px;
+
+}
+
+attr::after {
+  content: "속성";
+  font-size: 15px;
+  margin-left: 2px;
+  font-weight: 500;
+}
+
+.codeShow {
+  display: block;
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgb(247, 247, 247);
+}
+
+.codeShow p,
+.codeShow div {
+  display: contents;
+}
+
+.codeShow::after {
+  content: "Result";
+}
+
+.codeView {
+  color: white;
+  display: block;
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #252e5a;
+  letter-spacing: 0.5px;
+}
+
+.codeView::after {
+  content: "Code";
+}
+
+.codeShow::after,
+.codeView::after {
+  float: right;
+  position: static;
+  top: 0;
+  display: block;
+}
+
+html {}
+
+body {
+  min-height: 100%;
+  overflow: auto;
+
+}
+
+body::-webkit-scrollbar {
+  width: 0 !important;
+  display: none;
+}
+
+main {
+
+  width: 1150px;
+  height: auto;
+  margin: 0 auto;
+  ;
+
+}
+
+section {
+  border: 1px solid;
+  padding: 30px 60px;
+  margin: 10px 0;
+}
+
+article {
+  border-top: 5px solid;
+
+}
+
+.attributes {
+  padding-left: 20px;
+
+}

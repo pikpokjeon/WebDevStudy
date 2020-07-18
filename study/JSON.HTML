@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  
+  <script>
+
+const btn = document.getElementById("btn1");
+
+btn.onclick = function(){
+const xhr = new XMLHttpRequest;
+xhr.open("GET","link.jsp",false);
+xhr.send();
+
+const arr = JSON.parse(xhr.responseText);
+
+const tlist = "";
+for ( const item in arr){
+  tlist += "<li>"+item.no +"</li>"+
+            "<li>"item.title+"</li>";
+}
+
+const tag = document.querySelector("#list > div");
+tag.innerHTML = tlist;
+
+
+
+}
+
+  </script>
+</body>
+
+</html>

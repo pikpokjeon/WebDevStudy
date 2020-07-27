@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+</head>
+<!-- <link rel="stylesheet" href="../css/common.css"> -->
+<link rel="stylesheet" href="https://yaejinjeon.github.io/YaejinStudy/css/common.css/">
+
+
+<body>
+  <title>타입스크립트</title>
+  <main>
+    <h1>기초</h1>
+
+    <article>
+
+      <h3 id="toStart">7월18일 오전 11시</h3>
+
+      <section>
+        <h2>Types</h2>
+        <base href="#" target="_blank" />
+
+        <h2>Primitive Types</h2>
+        <p>number boolean void undefined</p>
+        <p>string symbol numm</p>
+
+        <h2>Object Types</h2>
+        <p>functions arrays</p>
+        <p>classes objects</p>
+
+        <p>
+          <attr>name</attr>정보의 종류
+        </p>
+        <meta name="description" />
+
+        <p>
+          <attr>http-equiv</attr>서버/사용자 에이전트의 작동방식 변경에 대한 지시 ( HTTP 응답 헤더 제공)
+        </p>
+        <meta http-equiv="" />
+
+        <p>
+          <attr>content</attr>name,http-equiv 의 값이 들어감
+        </p>
+        <meta http-equiv="" content="" />
+
+
+        <h2>Style</h2>
+        <p>CSS를 설정</p>
+
+      </section>
+
+      <section>
+        <h1>컨텐츠 구분</h1>
+        <hr />
+        <h1 style="font-size: 2em;">h1</h1>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <h4>h4</h4>
+        <h5>h5</h5>
+        <h6>h6</h6>
+        <p>문서의 정보 계층을 구조화- Heading</p>
+
+
+        <h2>header</h2>
+        <p>문서의 헤더를 설정 - 로고, 제목, 검색창 </p>
+
+        <h2>footer</h2>
+        <p>문서의 푸터를 설정 - 작성자, 저작권, 레퍼런스 </p>
+
+        <h2>main</h2>
+        <p>문서의 주요 콘텐츠를 설정 - IE지원x, 한 문서에 하나의 요소만 포함가능</p>
+
+
+        <h2>article</h2>
+        <p>독립적으로 <strong>구분되거나 재사용 가능한</strong> 영역을 설정 -기사, 블로그</p>
+        <p>일반적으로 <code>
+            < h1>~< h6&gt;</code> 을 포함하여 식별</p> <p>작성일자와 시간표기<code>
+                  < time datatime="">
+                </code>
+        </p>
+
+        <h2>section</h2>
+        <p>문서의 일반적인 영역을 설정</p>
+        <p>일반적으로 <code>
+            < h1>~< h6&gt;</code> 을 포함하여 식별</p> <h2>aside</h2>
+                <p>문서의 별도 콘텐츠를 설정 - 광고, 기타링크 등의 사이드바</p>
+
+                <h2>nav</h2>
+                <p>다른 페이지 링크를 제공하는 영역을 설정 - 메뉴, 목차, 색인</p>
+
+                <h2>address</h2>
+                <p>
+                  <code>
+                    < body>, < article>, < footer>
+                  </code>등에서 연락처 정보를 제공하기 위해 포함하여 사용
+                </p>
+
+                <h2>div</h2>
+                <p>본질적으로 아무것도 나타내지 않는 콘텐츠 영역을 설정</p>
+                <p>Division - 꾸미는 목적으로 사용</p>
+
+      </section>
+
+
+
+      <section>
+        <h1>문자 컨텐츠</h1>
+        <hr />
+        <h2>list</h2>
+
+        <h2>
+          < ol>
+        </h2>
+        <p>순서가 필요한 정렬된 목록 - Ordered List</p>
+        <p>
+          <attr>start</attr> 항목에 매겨지는 번호의 시작 값(number)
+        </p>
+        <p>
+          <attr>type</attr> 항목에 매겨지는 번호의 유형(a,A,i,I,1)
+        </p>
+
+
+
+
+        <div class="codeView" contenteditable="true">
+          <pre>
+          &lt;ol start="0" type="I">
+          &lt;li&gt; 1 &lt;/li>
+          &lt;li>2&gt;/li>
+          &lt;li value="4">3&gt;/li>
+          &lt;/ol>
+        </pre>
+        </div>
+        <div class="codeShow">
+          <div>
+            <ol start="0" type="I">
+              <li>1</li>
+              <li>2</li>
+              <li value="4">3</li>
+            </ol>
+          </div>
+        </div>
+
+        <h2>
+          < ul>
+        </h2>
+        <p>순서가 필요하지 않는 정렬안된 목록 - Unordered List</p>
+
+        <h2>
+          < li>
+        </h2>
+        <p>리스트 항목을 설정 - List item</p>
+        <p>단독으로 사용할 수 없으며, ol 이나 ul 에 자식으로 포함되어야 한다</p>
+        <code>display: list-item</code>
+        <p>
+          <attr>value</attr> 항목의 순서를 설정(number)
+        </p>
+
+        <hr />
+        <h3>용어 < dt> 와 정의 < dd> 쌍(키-벨류값) 의 영역 < dl> 을 설정</h2>
+
+                <h2>
+                  < dl>
+                </h2>
+                <p>Description List - <strong>용어 리스트</strong></p>
+                <p>오직 <code>
+                    < dd>,< dt>
+                  </code>만을 포함함</p>
+
+                <h2>
+                  < dt>
+                </h2>
+                <p>Definition Term - <strong>용어(Key)</strong></p>
+
+                <h2>
+                  < dd>
+                </h2>
+                <p>Definition Details - <strong>정의, 용어 디테일(Value)</strong></p>
+
+                <!-- <pre> -->
+                <div class="codeShow">
+
+                  <div>
+
+                    <dl>
+                      <dt>dt키하나</dt>
+                      <dd>dd값하나</dd>
+                      <dt>dt녹차</dt>
+                      <dd>dd라떼</dd>
+                    </dl>
+
+                  </div>
+                </div>
+
+                <!-- </pre> -->
+
+                <h2>
+                  < p>
+                </h2>
+                <p>하나의 문단을 설정 - paragraph (block)</p>
+
+                <h2>
+                  < hr />
+                </h2>
+                <p>문단의 분리를 위해 설정</p>
+
+                <h2>
+                  < pre>
+                </h2>
+                <p>서식이 미리 지정된 텍스트를 설정 - Preformatted Text</p>
+                <p>텍스트의 공백과 줄바꿈을 유지하여 표시할 수 있음</p>
+                <p>기본 글꼴 계열 - Monospace</p>
+
+
+                <h2>
+                  < blockquote>
+                </h2>
+                <p>일반 인용문을 설정</p>
+                <p>
+                  <attr>cite</attr>인용 정보URL
+                </p>
+
+
+
+
+
+
+      </section>
+
+
+      <section>
+
+
+
+
+        <h1>인라인 텍스트</h1>
+
+        <hr />
+
+
+
+        <h2>
+          < a>
+        </h2>
+
+        <code>display:inline</code>
+
+        <p>다른/같은페이지 위치, 파일, 이메일주소, 전화번호 등 다른 URL로 연결하는 <attr>하이퍼링크</attr>를 설정</p>
+        <p>
+          <attr>href</attr>생략가능하다!
+        </p>
+        <div class="codeShow">
+          <p><a href="#toStart">공부 시작부분으로</a></p>
+        </div>
+
+        <div class="attributes">
+          <p>
+            <attr>download</attr>경로 리소스를 다운로드(Boolean)
+          </p>
+          <p>
+            <attr>rel</attr>현재 문서와 링크 URL의 관계(link type - <code>prev, next</code> ...)
+          </p>
+          <p>
+            <attr>type</attr>링크 URL의 MIME타입 <code>text/html</code>
+          </p>
+          <p>
+            <attr class="">target</attr>링크 URL의 표시위치 (브라우저 탭) <code>
+              < a target="_blank|_self|_parent|_top|framename">
+            </code>
+          </p>
+          <div class="codeShow">
+            <a href="play.html" target="_blank">새창</a>
+            <a href="play.html" target="_self">같은프레임에서 열기</a>
+            <a href="play.html" target="_parent">부모프레임에서열기</a>
+            <a href="play.html" target="_top">창의 body꽉차게</a>
+          </div>
+        </div>
+
+        <h2>
+          < abbr>
+        </h2>
+        <p><strong>약어</strong>를 지칭 - Abbreviation</p>
+        <p>
+          <attr>title</attr>속성을 사용하여 대상의 전체 글자나 설명을 제공
+        </p>
+
+        <div class="codeView">
+          <pre>
+ using < abbr title="Typescript">ts< /abbr> is fun!!    
+</pre>
+
+        </div>
+        <div class="codeShow">
+          <p>using <abbr title="Typescript">ts</abbr> is fun!! </p>
+
+        </div>
+
+
+
+
+
+        <h2>
+          < b>
+        </h2>
+        <code>display:inline</code>
+        <p>문체가 다른 글자의 범위를 설정 - Bring Attention</p>
+        <div class="codeShow">
+          <p>타입스크립트로 <b>함수형프로그래밍</b>을 할 수 있다.</p>
+          <p>
+            <strong>Strong태그</strong> 와 <b>b태그</b> 비교하기
+          </p>
+        </div>
+
+
+
+
+
+      </section>
+    </article>
+  </main>
+</body>
+
+</html>

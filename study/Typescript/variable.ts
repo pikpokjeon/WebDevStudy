@@ -1,3 +1,5 @@
+//tsc variable.ts && node variable.js
+
 let apples: number = 5;
 let speed: string = '10';
 let hasName: boolean = true;
@@ -17,7 +19,7 @@ let truths: boolean[] = [true, true, false];
 
 //Classes Capital
 class Car {}
-let car: Car = new Car();
+let cdar: Car = new Car();
 
 //Objext literal
 let point: { x: number; y: number } = {

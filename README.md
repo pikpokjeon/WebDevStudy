@@ -1,2 +1,2 @@
 # YaejinStudy
-studyFile of Html CSS Javascript Typescript etc
+My github pages that store study history of frontend and backhend etc

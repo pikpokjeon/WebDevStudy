@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+//참조에 의한 호출과  값에 의한 호출
+function add(z){
+  z.x=z.y+1; 
+  z.y=z.x+1;
+  return z;
+
+}
+const ltr = {x:0, y:1};
+const cat = add(ltr);
+console.log(ltr,cat);
+
+//인수 여러 개를 우아하게 전달하기
+
+const things = {
+  _1 : 1,
+  _2 : 2,
+  _3 : 3
+};
+function makeAThing (e){
+ return  e._1+e._2+e._3;
+}
+const done = makeAThing(things);
+console.log(done);
+
+//생성자로 객체 생성하기
+
+function Card(suit , rank){
+  this.suit = suit; //this 는 참조하는 객체를 의미한다
+  this.rank = rank;
+};
+
+const card = new Card('Heart','A');
+//객체를 출력해 보면, 앞에 생성자 이름이 표시됨
+console.log(card);
+
+//메서드를 가진 객체를 생성하기
+function Circle(center, radius){
+  this.center = center;
+  this.radius = radius;
+  this.area =()=>{ 
+    //this 를 사용하면 그 값이 인스턴스의 프로퍼티임을 명시
+    return Math.PI * this.radius * this.radius;
+  };
+}
+const p = {x:2, y:4};
+const circle = new Circle(p, 4.0);
+console.log("넓이:"+circle.area());
+
+</script>  
+</body>
+</html>

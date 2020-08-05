@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //증가/감소 연산자의 전위와 후기표기법 차이
+
+let a = 1;
+console.log('a=',a);
+let b = ++a;
+console.log('b=',b,',a=',a);
+let c = a++ +2 ;
+console.log('c=',c,',a=',a);
+c = a + 2 ;
+console.log('c=',c)
+
+//String 객체
+b = 'd';
+a = b.concat([1,2,3]);
+console.log(a); //"d1,2,3"
+a.charAt(2); // ,
+a.split(',',[2]);
+
+c = " . dfdf fd . "
+c.trim();//앞 뒤 공백을 제거
+c = new String(' _ a a a . ');
+typeof(c); // object
+
+//래퍼객체 (wrapper object)
+
+//msg는 실행하는 순간에 일시적으로 생성되는 String객체.
+//처리가 끝나면 곧바로 메모리에서 삭제된다.
+let msg = new String("dfdf sd f s d");  //문자열을 String객체로 변환
+c = msg.charAt(2);// String 객체의 메서드를 사용
+
+//자바스크립트에서는 원시 값을 처리할 때 원시값을 래퍼객체로 자동변환
+//래퍼객체의 기능을 활용해 다양한 작업 수행.
+//문자열->String, 숫자->Number, 논리값->Boolean
+//null과 undefined에는 래퍼객체 없음
+
+
+//원시값을 처리할 때는 대부분
+msg = "JS is so fun. hehe"
+c = msg.charAt(3); //처럼 원시 값의 메서드를 바로 호출
+//String 객체 등으로 다시 변환해서 처리하지 않는다.
+
+
+//msg를 String 객체로 변환하면 의도한 것과 다른 결과가 나옴
+msg = new String("dfdf sd f s d"); 
+console.log(msg);
+//msg를 문자열로 출력하기. String object -> 문자열
+msg = new String("dfdf sd f s d").valueOf();
+console.log(msg);
+
+
+
+//문자열 메서드
+a = ".Welcome/ to Java-script World. _ "
+
+//
+a.substring(0,1); // 0 번째부터 1번째 이전 문자열
+a.slice(7,15);//위와 동일
+
+a = ".Welcome/ to Java-script World. _ "
+a.slice(-10); //마지막 문자 10개
+a.slice(-1,-10); //끝에서 1번째 문자부터 10번제 이전
+
+a.indexOf("t"); // 문자 t가 처음 나오는 위치
+a.indexOf("o",10); //10번째 이후 문자에서 문자 o가 처음 나오는 위치
+a.lastIndexOf("t"); //문자 t가 마지막으로 나오는 위치
+
+a = ".Welcome/ to Java-script World. _ "
+b=a.split(" ") // " "로 문자열을 나눔 [  ,  ,  ]
+console.log(b);
+
+a.replace("e", "E"); //e를  E로 바꿈
+a.toUpperCase(); //모든 문자를 대문자로 바꿈
+
+ //문자열이  .으로 끝나는지 논리값
+console.log(a.endsWith('.'));
+// "javascipt" 이 포함되어 있는지 뜻하는 논리값
+console.log(a.includes("java-script"));
+
+a = ".Welcome/ to Java-script World. _ "
+console.log(a.charCodeAt(0)); //문자 코드 "."
+console.log(a.codePointAt(0)); //문자 코드 "."
+
+
+//String 생성자의 프로퍼티
+
+a= new String();
+
+console.log(a.length);
+console.log(String.fromCharCode(0xd83d));
+console.log(String.fromCodePoint(0x1f4d6));
+console.log(a.prototype); // a 의 프로토타입 객체
+
+
+/*
+console.log(String.raw(`hello
+every
+one`)); // 템플릿 문자열의 원시 문자열 형식을 반환
+*/
+
+//문자열과 배열
+a = "Java-script World. _ "
+//문자열을 읽을 때 대괄호 연산자 사용
+a[a.length-5];
+//하지만 배열처럼 값을 대입해서 수정불가
+//a.[1]= "j";
+
+//써로게이트 페어로 표현하는 문자는 두 개의 배열 요소로 분리
+//b = 📖;//
+/*
+let q = b[0].codePointAt(0).toString(16); // 상위 써로게이트
+console.log(q);
+let w = b[1].codePointAt(0).toString(16); // 하위 써로게이트
+console.log(w);
+console.log(b[0]+b[1]);
+*/
+
+
+ 
+  </script>
+</body>
+</html>

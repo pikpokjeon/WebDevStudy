@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //관계 연산자는 두 개의 피연산자를 비교한 결과를 논리값으로 반환
+    //주로 제어 구조 if/else문 while문 for문에서 조건식 만들 때 씀
+
+    let a = 1;
+    let b = 2;
+
+
+    a == b ; //a값과 b값이 같으면 true
+    a != b ; //다르면 true
+    a === b ; // 타입이 같으면 true
+    a !== b ; //타입이 다르면 true
+    a < b ; //a 값이 b보다 작으면 true
+    a > b ; //a 값이 b 보다 크면 true
+    a <= b ; //a값이 b보다 작거나 같으면 true
+    a >= b ; // a값이 b보다 크면 true
+
+    //동일 연산자
+    //좌우 피연산자의 타입이 같을 때
+
+    a = [1,2]; //배열의 참조가 저장됨
+    b = [1,2]; //배열의 참조가 저장됨
+    //각 배열에는 같은 데이터가 담겨있지만 
+    //메모리에서 차지하는 위치가 다르다
+    let c = a;
+    console.log( a == b);  //false
+    console.log( a == c);  //true
+    //좌우 피연산자의 값이 같으면 true, 
+    //변수 데이터 타입에 따라 달라지는데 원시타입 변수의 값 != 객체타입 변수의 값
+    //원시 타입은 내용물 그 자체인데
+    //객체 타입 변수의 값은 객체의 참조이다.
+    // 객체 타입 변수 값이 같은지 판별하는 행위는 같은 객체를 가리키는지 판별하는 것
+ 
+    //좌우 피연산자의 타입이 다를 때 ->우선 같은 타입이 되도록 타입을 변환
+    //undefined , null 같은 것
+    //숫자 = 문자열 -> 문자열을 숫자로 변환
+    a = 1; b = "a";
+    console.log(a == b);
+    console.log(a , b);
+    //둘 중 한쪽이 논리값이면 true =1, false = 0;
+    //한쪽이 객체, == 문자열/숫자 ->객체를 toString/valueOf 메서드 사용해서 원시타입으로 변환후 비교
+    a = new String(1);
+    b = 1;
+    console.log(a == b);
+    console.log(a , b,typeof(a),typeof(b));
+
+    a = [2];
+    b = 2 ;
+    console.log(a == b, typeof(a),typeof(b), toString(a), a.valueOf(a));
+  
+  //=== 일치연산자 -> 타입과 값이 모두 같으면 같다고 판정
+
+  //논리 연산자
+
+  //논리곱연산자
+  a && b;// a와 b가 모두 true면 true
+  //a를 평가한 값이 false면 b의 값에 관계없이 전체 값이 false. b를 평가안함
+  // &&연산자는 flase 대신 a의 값자체를 반환함.
+  //a가 true면 b만 평가함. b값 자체를 반환함 
+  a = {};
+  console.log(a && a.name, a)
+  a = {name:"yaejin"};
+  console.log(a && a.name, a)
+
+ 
+  a > 0 && b> 0;
+  
+  //논리합연산자
+  a || b ; //a와 b 중 하나라도 true면 true
+  !a ; //a 가 true면 false
+  
+  //|| 연산자는 여러개의 값 후보 중에서 null또는 undefined가 아닌 값을 선택할 떼 유용
+  let time_interval,animation;
+  const time = time_interval || animation || 42;
+  console.log(time);
+  //정의 되면 스탑, 아니면 패스 해서 42까지 도달
+
+  // || 연산자는 함수에서 인수의 초깃값을 설정할 때 유용
+  function f(x){
+    x = x || 100;
+    return x;
+  };
+  console.log(f(),f(5));
+  //인수를 지정해서 호출하면 인수값(5)이 true로 평가됨
+  // 하지만 인수값에 false ( 0,"")이 들어가면 그 값이 사용되지 않고 초기값이 그대로 사용됨
+  function _0(x){
+    return (x ===0 || x)? x:100;
+  }
+  console.log(_0(0));
+
+
+  a = true;
+  b = false;
+  console.log(!(a && b )); // a && b -> false, !false -> true;
+  // 피연산자 false -> 0, -0, "", NaN, null, undefined
+  //         true  -> 0제외 숫자, 문자열, 모든 객체, 심벌
+
+ //우선순위
+ // ! > 관계연산자 > 논리연산자
+
+  </script>
+</body>
+</html>

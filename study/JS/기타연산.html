@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+//typeof 연산자 : 단항연산자 데이터 타입을조사 
+//반환값 : number, string, boolean, undefined, object, symbol, object, function
+//null = "object", undefined="undefined"
+// 피연산자의 데이터타입을 뜻하는 문자열을 반환 
+  let a = "a";
+  console.log(typeof(a)); //string
+  //함수이외 객체는 모두 "object"반환하므로 객체유형 파악불가
+  a = {false};
+  console.log(typeof(a));
+
+
+
+  //객체유형을 알고싶으면
+  // instanceof 연산자 : 생성자의 prototype 속성이 객체의 프로토타입 체인 어딘가 존재하는지 판별
+  function Human(age,sex,nation){
+    this.age=age;
+    this.sex=sex;
+    this.nation=nation;
+  };
+  const yaejin = new Human(27,'woman','kor') 
+  console.log(yaejin instanceof Human);//true
+  console.log(yaejin instanceof Object);//true
+
+  
+
+
+  </script>
+</body>
+</html>

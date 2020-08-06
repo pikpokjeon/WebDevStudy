@@ -14,7 +14,7 @@
   let a = "a";
   console.log(typeof(a)); //string
   //함수이외 객체는 모두 "object"반환하므로 객체유형 파악불가
-  a = {false};
+  a = [false,0];
   console.log(typeof(a));
 
 
@@ -30,7 +30,37 @@
   console.log(yaejin instanceof Human);//true
   console.log(yaejin instanceof Object);//true
 
+
+  //쉼표 연산자
+  //이항 연산자로 왼쪽 피연산자를 평가하고 오른쪽 피연산자를 평가한 이후에 
+  //마지막 오른쪽 끝 피연산자의 값을 반환함
+  for(let i = 1, sum = 0; i<=10; i++){
+    console.log(sum,i,sum+=i);
+  }
+
+  // eval함수 != 연산자
+  // 문자열 단 하나만을 인수로 받아서 자바스크립트 코드로 해석
+  // eval함수를 실행하면 함수를 호출한 환경의 유효범위 안 변수를 사용
+  // 일반함수처럼 함수 유효범위를 만들지 않음
   
+  // eval함수 호출 = 인수로 받은문자열-> 코드로변환 -> eval함수를 호출한 부분과 맞바꿈
+  a = 1;
+  eval("a++");  // = a++;
+  console.log(a);
+
+  //문자열로 함수 선언문을 넘겨 함수를 정의
+  const formula = "a + a" ;
+  let b= eval("function f(a){return " + formula + ";}");
+  console.log(b);//undefined
+  //되도록이면 안쓰는것이 좋다.
+  
+  //동적인 프로퍼티에 접근하려고 할 때
+  //안티패턴
+  let obj = {name : "yaejin"};
+  const property = 'name';
+  console.log(eval('obj.'+property));
+  //권장패턴
+  console.log(eval(obj[property]));
 
 
   </script>

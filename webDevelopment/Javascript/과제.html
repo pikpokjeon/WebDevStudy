@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //팬그램 여부를 체크하는 함수 만들기
+    const word = "The Quick Brown Fox Jumps Over The Lazy Dog ".toLowerCase();
+    const abc = "abcdefghijklnmopqrstuvwxyz".toLowerCase();
+
+    
+    function isPangram (word,abc){
+      let a;
+      for (i=0;i<abc.length;i++){
+       a= word.includes(abc[i]);
+      };
+      return a;
+    };
+
+    // const iSPangram = (word,abc) => {
+    //   return word.includes(abc.map());
+    // };
+
+    console.log(isPangram(word,abc));
+    // console.log(iSPangram(word,abc));
+
+    let a = `
+    0807 선배님께 배우게 된 내용들
+
+    0) 되도록 쓰면 안되는 구문
+      1.goto
+      2.with
+      3.eval
+    
+    1) eval() 동작원리
+      :string을 받아 그 string을 js구문으로 취급하여 실행
+      const runJS = code => eval(code);
+      :외부에 완전히 닫혀있으면 인젝션에 취약하지 않음
+      :eval의 문제는  scope를 말아먹음 -> eval('this.is.what') -> 여기서 this?
+
+      암시적으로 eval을 호출할 수 있는 케이스
+        1.setTimeout('console.log("saywhat"')
+        :setTimeout, setInterval에 핸들러를 넣을 수 있지만 string도 넣을 수 있다
+        :string을 넣으면 자체적으로 eval을 실행
+
+        2.new Function('console.log("saywhat"')
+
+
+    2) Call / Apply (실행 컨텍스트, 인자)
+        :두개 하는 일이 똑같다
+        :call 은 인자로 열거형, apply는 배열이 들어감
+        fn.call(obj, 1, 2, 3) == fn.apply(obj, [1, 2, 3])
+    `;
+    //최대값 구하기 함수
+    const arry = [1,4,6,3,8];
+    // console.log(Math.max(arry));
+
+    
+    const arrMax = arr => {
+      let max = -Infinity; //음수 무한대값
+      arr.forEach(v => { //배열의 요소가
+        if(v>max)max = v; //처음 음수보다크면,후에 대입된 값보다 크면
+                          //큰 경우에만 max에 대입해서 반복.
+      });
+      return max;
+    }
+    console.log(arrMax(arry));
+
+
+    //-infinite를 어디다??
+    const arrMax1 = arr => arr.reduce((p, v) => Math.max(p, v),-Infinity);
+    console.log(arrMax1(arry));
+
+    const arryMax2 = arry=> Math.max.apply(null,arry);
+    //reduce문서 참고하기
+    console.log(arryMax2(arry));
+    
+
+
+  </script>
+</body>
+</html>

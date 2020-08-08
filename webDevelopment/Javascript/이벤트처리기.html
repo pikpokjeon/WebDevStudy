@@ -61,11 +61,31 @@
   <input id="start" type="button" value="start">
   <input id="stop" type="button" value="stop">
   <input id="restart" type="button" value="restart">
-
-
+  <p>키:<input type="number" id="height">m</p>
+  <p>몸무게:<input type="number" id="weight">kg</p>
+  <p>당신의 체질량 지수는 <output id ="bmi">?</output>입니다.</p>
+  <button id ="button" value="계산">계산하기</button>
+<script>
+  document.write("<p> 이 스크립트가 있는 부분에 html태그를 넣음. </p>")
+</script>
 <script>
  
   window.onload=()=>{ // 웹 브라우저가 문서를 모두 읽어 들인 후에 실행된다
+
+
+    document.getElementById("button").onclick =()=>{
+      let h = parseFloat(document.getElementById("height").value);
+      let w = parseFloat(document.getElementById("weight").value);
+      let bmi = document.getElementById("bmi");
+      bmi.innerHTML = ( w/h/h).toFixed(1);
+    };
+
+
+
+
+
+
+
 
     const startBttn = document.getElementById('start');
     const stopBttn = document.getElementById('stop');
@@ -82,7 +102,7 @@
       console.log(stopPoint);
       
       timer = setInterval(function(){
-        let current = new Date();
+        let current, stopPoint = new Date();
 
         //console.log("now: %f",now); // NaN
 
@@ -93,7 +113,7 @@
         }
         else if (current < stopPoint){
   
-          display.innerHTML, stopPoint = ((current - stopPoint )/1000).toFixed(2);//소수점2째자리까지 보여줌
+          display.innerHTML, stopPoint = (((current - stopPoint )/1000)+stopPoint).toFixed(2);//소수점2째자리까지 보여줌
         };
       },10);
 
@@ -136,6 +156,7 @@
      clearInterval(repeat); //인수로 넘긴 interval함수를 취소시킴
 
 
+   
 </script>
 </body>
 </html>

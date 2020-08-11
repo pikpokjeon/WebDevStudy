@@ -42,5 +42,13 @@ window.onload = () => {
   ctx.lineTo(150,600);
   ctx.stroke();
 
-
+  // 원 그리기
+  // arc ( x, y , radius, startAngle, endAngle, anticolockwise)
+  // 원 ( x값, y값, 반지름, 원호 시작각도(radian), 끝각도, true=시계반대/falase=시계방향)
+  // degree -> radian 변환
+  const startAngle = 30 * Math.PI/180;
+  const endAngle = 120* Math.PI/180;
+  ctx.beginPath();
+  ctx.arc(800,800,80,startAngle, endAngle, false);
+  ctx.fill();
 }

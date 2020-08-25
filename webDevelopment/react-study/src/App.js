@@ -9,36 +9,30 @@ const App = () => {
 
   const handleChangeFocused = (e) => {
     setFocused(!focused);
-};
+  };
 
   useEffect(() => {
     // console.log("> Checkbox >", focused);
   });
 
   const handleChangeInput = (e) => {
-    console.log("-----OnChange Start-------");
-    console.log(">> newtyping <<");
+    // e.persist();
+    const content = e.target.value; //인풋 전체입력값
 
-    e.persist();
-
-    const content = e.target.value;
-
-    if (timer) {
-      clearTimeout(timer);
+    if (timer) { //setTimeout 객체 상태값 확인,
+      clearTimeout(timer); //돌아가고 있는 타이머호출종료
     }
 
     let newTimer = setTimeout(() => {
-      console.log("-----setTimeout Start-------");
-      const added = content.substr(word.length);
-      setWord(content);
-      console.log("Added>", added);
+      setWord(content); //전체 입력값을 word에 저장
+      const added = content.substring(word.length); //이전에 저장된 word값
 
-      setTimer(undefined);
+      console.log("Added >", added);
 
-      console.log("/---clearTimeout----/");
-    }, 3000);
-    console.log("-----OnChange Ends-------");
-    setTimer(newTimer);
+      setTimer(undefined);//새로 할당된 타임라인 없애기
+    }, 1000);
+
+    setTimer(newTimer); //타이머 할당
   };
 
   return (

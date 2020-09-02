@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <app-header></app-header>
+
+    <app-footer></app-footer>
+  </div>
+
+  <script>
+    //전역컴포넌트 등록
+    Vue.component('app-header',{//'컴포넌트태그', 컴포넌트 내용
+      template:'<h1>Header</h1>'
+    }); 
+
+    new Vue({
+      el:'#app', //태그선택
+      //지역컴포넌트 등록
+      components: {//객체리터럴
+        'app-footer': {
+          template: '<footer>Created by Yaejin</footer>' //컴포넌트 태그로 등록
+        }
+      }
+    });
+  </script>
+</body>
+</html>

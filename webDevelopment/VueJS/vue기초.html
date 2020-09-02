@@ -6,38 +6,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reactivity</title>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 
 <body>
   <div id="app">
 
   </div>
-
+<!-- vanila js -->
   <script>
-    const app = document.getElementById('app');
+
+
+
+    let app = document.getElementById('app');
     const view = {}; //객체생성
 
-    (function () { //즉시 실행 함수
+    (function () { //즉시 실행 함수, 라이브러리화 해보기
 
-      function init() {
-        Object.defineProperty(view, 'a', { //대상객체/객체속성
+      function init() { 
+        Object.defineProperty(view, 'a', { //대상객체, '객체속성'
 
           get: function () {
             console.log('접근');
           },
           set: function (e) {
             console.log(e, '할당함');
-            render(e);
+            render(e); //값을 할당
           }
 
         });
 
       }
 
-      function render() {
+      function render() { //화면에 보여주는 함수
        e = app.innerHTML ;
       }
       init();
     })();
+  </script>
+  <!-- VueJS -->
+  <script>
+     app = new Vue({
+      el:'#app',
+      data: {
+        message: 'test'
+      }
+    });
   </script>
 </body>
 

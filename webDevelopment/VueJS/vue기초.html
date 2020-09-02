@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reactivity</title>
 </head>
-<body>
-<div id="app">
 
-</div>  
+<body>
+  <div id="app">
+
+  </div>
 
   <script>
-const app = document.getElementById('app');
-const view = {}; //객체생성
+    const app = document.getElementById('app');
+    const view = {}; //객체생성
 
-Object.defineProperty(view,'a',{ //대상객체/객체속성
-  
-get: function(){
-console.log('접근');
-},
-set: function(e){
-console.log(e,'할당함');
-app.innerHTML=e;
-}
+    (function () { //즉시 실행 함수
 
-});
+      function init() {
+        Object.defineProperty(view, 'a', { //대상객체/객체속성
+
+          get: function () {
+            console.log('접근');
+          },
+          set: function (e) {
+            console.log(e, '할당함');
+            render(e);
+          }
+
+        });
+
+      }
+
+      function render() {
+       e = app.innerHTML ;
+      }
+      init();
+    })();
   </script>
 </body>
+
 </html>

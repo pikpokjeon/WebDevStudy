@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- element 는 요소           div = element
+    attribute 는 존재하는 속성  id = attribute
+    property는 속성의 값       app = property -->
+  <div id="app">
+    <!-- v-bind:props name='upper component's data name' -->
+    <!-- html attibutes are case-insensitive so that 
+    should use kebabcase in html 
+    propsData -> props-Data (in html)
+    -->
+    <app-header v-bind:props-Data='message'></app-header> 
+    <!-- propsData라는 속성 이름은 message이다 -->
+    <app-content v-bind:props-Data='num'></app-content>
+  </div>
+  <script>
+
+    const header = {
+      template: '<h2>{{propsData}}</h2>',
+      props: ['propsData'] //correspoding 'props name' to upper component data
+    }
+
+    const content = {
+      template: '<div> {{propsData}} </div>',
+      props:['propsData']
+    }
+
+
+    new Vue({ //새로운 인스턴스 생성
+      el: '#app',
+      components: {
+        'app-header':header,
+        'app-content':content
+      },
+      data: {
+        message: "How happy are you? in Range 1-10( I'm very satisfied with my life)", //message = data name
+        num:10
+      }
+    })
+  </script>
+</body>
+</html>

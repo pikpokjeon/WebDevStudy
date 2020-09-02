@@ -8,11 +8,17 @@
 </head>
 <body>
   <div id="app">
-    <app-header></app-header>
-
+    <!-- 전역 컴포넌트라 여러 루트 컴포넌트에서 사용가능 -->
+    <app-header></app-header> 
+    <!-- 로컬 컴포넌트는 한 루트 컴포넌트 el에서만 사용가능 
+      다만 해당 루트에 등록해주면 사용가능하다. -->
     <app-footer></app-footer>
   </div>
 
+  <div id="app2">
+    <app-footer></app-footer>
+
+  </div>
   <script>
     //전역컴포넌트 등록
     Vue.component('app-header',{//'컴포넌트태그', 컴포넌트 내용
@@ -27,6 +33,12 @@
           template: '<footer>Created by Yaejin</footer>' //컴포넌트 태그로 등록
         }
       }
+    });
+
+    new Vue({
+      el: '#app2', //2번째 root component
+
+
     });
   </script>
 </body>

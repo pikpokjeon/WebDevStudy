@@ -19,6 +19,7 @@
     <app-header v-bind:props-Data='message'></app-header> 
     <!-- propsData라는 속성 이름은 message이다 -->
     <app-content v-bind:props-Data='num'></app-content>
+    <app-button></app-button>
   </div>
   <script>
 
@@ -28,8 +29,18 @@
     }
 
     const content = {
-      template: '<div> {{propsData}} </div>',
+      // component template should contain exactly one root element?!
+      template: '<div> {{propsData}} </div> ',
       props:['propsData']
+    }
+
+    const button = {
+      template :'<button v-on:click="passEvent">confirm</button>',
+      methods: {
+        passEvent: function(){
+          this.$emit('pass'); //express $emit(신호,데이터 이름)
+        }
+      }
     }
 
 
@@ -37,13 +48,17 @@
       el: '#app',
       components: {
         'app-header':header,
-        'app-content':content
+        'app-content':content,
+        'app-button':button,
+       
       },
       data: {
         message: "How happy are you? in Range 1-10( I'm very satisfied with my life)", //message = data name
         num:10
       }
-    })
+    });
+
+ 
   </script>
 </body>
 </html>

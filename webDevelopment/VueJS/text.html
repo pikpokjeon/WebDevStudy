@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input id="val" type="number" >
+  <button id= "add" onclick="addNum">add</button>
+
+  <script>
+let val = document.getElementById('val').value;
+const button = document.getElementById('add');
+
+const addNum =() => {
+  val +=1;
+  val.innerHTML = val;
+};
+
+
+
+  </script>
+</body>
+</html>

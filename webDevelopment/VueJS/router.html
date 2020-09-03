@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>라우터기초</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+<body>
+  <div id="app">
+    <div>
+      <!-- <a>앵커태그로 변환됨. 네비게이터 -->
+      <router-link to="/main">Main</router-link>
+      <router-link to="/post">Post</router-link>
+      <router-link to="/login">Login</router-link>
+
+    </div>
+
+    <!-- 해당 페이지 url 의 컴포넌트가 보여지는 부분 -->
+    <router-view></router-view>
+  </div>
+
+
+  <script>
+    const LoginComponent = {
+      template: '<div>login</div>'
+    }
+    const MainComponent = {
+      template: ' <div>Main</div>'
+    }
+    const PostComponent = {
+      template: ' <div>Post</div>'
+    }
+
+
+    const Router = new  VueRouter({
+      //페이지의 라우팅 정보. 페이지의 갯수만큼 객체가 필요하다
+      routes:[
+        {//페이지url이름
+          path: '/login',
+          // 해당 url에서 표시될 컴포넌트
+          component: LoginComponent,
+        },
+        {
+          path: '/main',
+          component: MainComponent,
+        },
+        {
+          path:'/post',
+          component: PostComponent,
+          meta: {
+            authRequired: true //사용자 인증 필요
+          }
+        }
+      ]
+    });
+
+    
+    //전역가드 사용 ->특정 url로 이동하는걸 막는 제한을 검
+
+    //요것을 호출하면 모든 라우팅이 대기 상태가 됨. 해당 url로 라우팅 하려면 next()를 호출해줘야함
+    Router.beforeEach(function (to, from, next) { 
+      //to: 이동할 url   from: 현재 url   
+      //next: 지정한 url로 이동하기 위해 꼭 호출해야 하는 함수
+      if ( to.matched.some(function(routeInfo){
+         return routeInfo.meta.authRequired;
+        })) {
+        //이동할 페이지에 인증정보가 필요하면 경고창,페이지전환 x 다른 url이면 페이지전환.
+        alert('Please login');
+      } else {
+        console.log('routing success to',to.path );
+        next();
+      };
+   
+    });
+
+    
+
+    new Vue({
+      el:'#app',
+      router: Router,
+    });
+  </script>
+  
+</body>
+</html>

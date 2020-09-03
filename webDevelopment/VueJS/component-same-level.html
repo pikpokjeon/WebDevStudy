@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app">{{num}}
+  <!-- 상위 컴포넌트 root에서 다시 하위로 내려줘야해서 
+  데이터를 내려받을 해당 컴포넌트의 props에 데이터값을 할당해줌. 
+  props이름 : 데이터 값-->
+  <!-- v-bind:props이름 = '상위컴포넌트의 데이터이름' -->
+  <app-header v-bind:show-Num='num'></app-header>
+  <!-- 하위에서 올라오는 pass라는 이벤트에 상위 메서드 deliverNum을 할당해줌 -->
+  <app-content v-on:pass="deliverNum"></app-content>
+</div>
+
+  <script>
+    //같은 레벨의 로컬 컴포넌트들
+    const appHeader = {
+      template: '<div></div>',
+      props: ['showNum'] //props이름 명시
+       
+    };
+    const appContent ={
+      template: '<div>content<button v-on:click="passNum" >pass</button></div>',
+        methods: {
+          passNum: function(){ //메서드속성이름:함수
+            this.$emit('pass',10); //pass라는 이벤트로 10을 상위 컴포넌트(root)로넘김
+          }
+        }
+    };
+
+new Vue({
+  el: '#app',
+  components: {
+    'app-header': appHeader,
+    'app-content': appContent
+  },
+  data : {
+    num:0
+  },
+  methods: {
+    deliverNum: function(value){
+      this.num = value;
+
+    }
+  }
+
+
+
+});
+  </script>
+</body>
+</html>

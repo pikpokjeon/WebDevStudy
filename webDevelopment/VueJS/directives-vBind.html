@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!--<p  id = "app1" v-bind생략하고 :id 라 표기 가능>-->      
+      <p v-bind:id="num" v-if="meow">보임</p>
+      <p :class="str"></p>
+      <!-- v-if먼저 후에 v-else-if v-else 순서대로 붙여 써야함.!! -->
+      <p v-else-if="meow2">보임2</p>
+    <div v-else>
+      안보임
+    </div>
+    <div v-if="loading">
+      Loading...
+    </div>
+    <div v-else>
+      Successfully logged in.
+    </div>
+
+
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        str: 'meow',
+        num: 'app1',
+        loading: true,
+        meow: true,
+        meow2: false,
+
+      },
+    })
+  </script>
+</body>
+
+</html>

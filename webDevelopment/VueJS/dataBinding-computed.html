@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>data-binding and computed attribute</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+  <div id="app"><p>{{doublenum}}</p>{{num}}{{triplenum}}</div>
+
+
+
+  <script>
+    new Vue({
+      el:'#app',
+      data : {
+        str:'meow',
+        num:10,
+        triplenum:function(){
+          return this.num *3; //데이터에는 함수가 프로퍼티로 할당안됨.
+        }
+      },
+      computed:{
+        doublenum: function(){
+          return this.num *2; //같이 변화는 속성
+        }
+      }
+    })
+  </script>
+</body>
+</html>

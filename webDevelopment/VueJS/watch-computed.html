@@ -7,8 +7,20 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 </head>
+<style>
+  .warning-color {
+    color:red;
+  }
+</style>
 <body>
-  <div id="app"></div>
+  <div id="app">
+
+<!-- 
+    computed의 errorText기능에서 isError가 트루인 경우 클래스이름은
+    'warning-color'가 된다 -->
+    <p v-bind:class="errorText">Error</p> 
+
+  </div>
 
 
 
@@ -18,11 +30,16 @@
       el:'#app',
       data: {
         num:10,
+        isError:false
       },
       computed: {
         doubleNum: function(){
           return this.num *2;
+        },
+        errorText: function(){
+          return this.isError ? 'warning-color' : null;
         }
+
       },
       watch: {//좀 더 복잡한 데이터 처리할 때 메서드와 함께 사용
         num: function(newValue,oldValue){ //두번째 인자는 이전 값!

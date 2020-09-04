@@ -1,6 +1,7 @@
-
 <template>
-<div>list</div> 
+  <div>
+    footer
+  </div>
 </template>
 
 <script>

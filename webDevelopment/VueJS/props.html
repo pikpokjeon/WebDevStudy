@@ -19,7 +19,7 @@
     <app-header v-bind:props-Data='message'></app-header> 
     <!-- propsData라는 속성 이름은 message 데이터에 연결한다 -->
    <p>My Score:{{num}}</p> 
-   <app-content v-bind:input-Score='num'></app-content>
+   <app-content v-bind:input-Score='num' v-on:increase='addNum'></app-content>
    <!-- <app-content></app-content> -->
     <!-- v-on:하위 컴포넌트에서 발생한 이벤트 이름 ="상위 컴포넌트 메서드이름" -->
     <!-- 상위 컴포넌트에서 methods에 기능을 정의한다 -->
@@ -35,12 +35,25 @@
     const score = {
       // :value="num" 하는 경우 초깃값이 없어서그런지?! 에러가 뜬다.
       // <p>태그로 반영하는 것처럼 input필드에도 반영해주고 싶다.
-      template: '<input type="number" :value="num"/> ',
-      props:['inputScore']
+      //->해결완료. :value값을 props로 변경.
+      // v-on:keyup.enter 키에서 손을 뗄때.엔터v-model="inputScore"
+      template: '<input type="number"  :value="inputScore" v-on:keyup.enter="addNumber"/> ',
+      props:['inputScore'],
+      methods: {
+        addNumber: function(){
+          this.$emit('increase');
+        }
+      //   template: '<input type="number"  :value="inputScore" v-on:keyup.enter="addNumber"/> ',
+      // props:['inputScore'],
+      // methods: {
+      //   addNumber: function(){
+      //     this.$emit('increase');
+        // }
+      }
     }
 
     const button = {
-      template :'<button v-on:click="addNumber">Add my Happiness</button>',
+      template :'<button v-on:click="addNumber">Add</button>',
       methods: { //여기서는 그냥 이벤트 이름만 정의해줌
         addNumber: function(){
           this.$emit('increase'); //express $emit(신호,데이터 이름) 'pass'라는 이벤트를 발생시킴
@@ -64,6 +77,11 @@
       methods: {
         addNum: function() {
           this.num +=1;
+        }
+      },
+      watch: {
+        num: function(){
+          this.num=num;
         }
       }
 

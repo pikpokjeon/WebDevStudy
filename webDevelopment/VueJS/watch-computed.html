@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+  <div id="app"></div>
+
+
+
+  
+  <script>
+    new Vue({
+      el:'#app',
+      data: {
+        num:10,
+      },
+      computed: {
+        doubleNum: function(){
+          return this.num *2;
+        }
+      },
+      watch: {//좀 더 복잡한 데이터 처리할 때 메서드와 함께 사용
+        num: function(newValue,oldValue){ //두번째 인자는 이전 값!
+          this.fetchNumber(newValue);
+          console.log('oldValue',oldValue)
+        }
+      },
+      methods: { 
+        fetchNumber: function(num){
+          console.log('newValue',num);
+          //axios.get(num)
+        }
+      }
+
+    });
+  </script>
+</body>
+</html>

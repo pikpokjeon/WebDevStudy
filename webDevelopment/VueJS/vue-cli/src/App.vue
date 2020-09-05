@@ -35,7 +35,7 @@ export default {
     width: 200px;
   }
   button {
-    border=style: groove;
+    border-style: groove;
 
   }
   .shadow {

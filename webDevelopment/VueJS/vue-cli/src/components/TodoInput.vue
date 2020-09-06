@@ -20,10 +20,7 @@ export default {
   methods: {
     addTodo: function(){
       if ( this.newTodoItem !==''){
-        const obj = {completed:false,item:this.newTodoItem};
-
-        //JSON.stringfy -> 자바스크리트 오브젝트를 변환
-        localStorage.setItem(this.newTodoItem,JSON.stringify(obj));//key,value
+        this.$emit('addTodoItem' ,this.newTodoItem);
         this.clearInput();
       }
     

@@ -3,8 +3,8 @@
     <todo-header></todo-header>
     <todo-input v-on:addTodoItem="addOneItem"></todo-input>
     <todo-list v-bind:propsdata='todoItems' v-on:removeItem="removeOneItem" 
-                v-on:toggleitem='toggleOneItem'></todo-list>
-    <todo-footer v-on:clearall="clearAllItems"></todo-footer>
+                v-on:toggle-Item='toggleOneItem'></todo-list>
+    <todo-footer v-on:clearAll="clearAllItems"></todo-footer>
   </div>
 </template>
 
@@ -49,7 +49,6 @@ export default {
       // 로컬스토레이지 연결 문제있으니 고쳐야함
       if(localStorage.length>0){
         for(let i = 0; i < localStorage.length ; i ++){
-          //
           this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
 
         }

@@ -15,32 +15,32 @@ import TodoList from './components/TodoList.vue'
 import TodoFooter from './components/TodoFooter.vue'
 
 
-export default {
+export default { //default라는 익명함수는 import 할 때 이름을 정할 수 있다
     data: function(){
       return {
         todoItems: []
       }
     },
     methods:{
-      addOneItem: function(todoItem){
+      addOneItem(todoItem){
         const obj = {completed:false,item:todoItem};
         //JSON.stringfy -> 자바스크리트 오브젝트를 변환
         localStorage.setItem(todoItem,JSON.stringify(obj));//key,value
         this.todoItems.push(obj);
       },
-      removeOneItem:function(todoItem, index){
+      removeOneItem(todoItem, index){
         console.log(todoItem,index);
         localStorage.removeItem(todoItem.item);
         this.todoItems.splice(index,1);//start, deleteCount 기능후 새로운배열을 반환해줌
 
       },
-      toggleOneItem: function(todoItem,index){
+      toggleOneItem(todoItem,index){
         this.todoItems(index).completed = !this.todoItems(index).completed;  
         //boolean값 갱신
         localStorage.removeItem(todoItem.item);
         localStorage.setItem(todoItem.item,JSON.stringify(todoItem));
       },
-      clearAllItems:function(){
+      clearAllItems(){
         localStorage.clear();
         this.todoItems = []
       }
@@ -55,10 +55,11 @@ export default {
       }
     },
   components: {
-    'TodoHeader' : TodoHeader,
-    'TodoInput' : TodoInput,
-    'TodoList' : TodoList,
-    'TodoFooter': TodoFooter
+    //Enhanced Object Literal 때문에 키값:속성값 이름이 같으면 하나만 적어도 됨.
+     TodoHeader,
+      TodoInput,
+      TodoList,
+    'TodoFooter': TodoFooter //기존
   }
 
 }

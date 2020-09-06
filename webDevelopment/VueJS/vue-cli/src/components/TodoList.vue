@@ -19,11 +19,11 @@
 export default {
   props: [ 'propsdata'],//내려보낼 props
   methods:{
-    removeTodo:function(todoItem, index){
+    removeTodo(todoItem, index){
       this.$emit('removeItem',todoItem, index)
       
     },
-    toggleComplete: function(todoItem,index){
+    toggleComplete(todoItem,index){
       this.$emit('toggleItem', todoItem, index)
     }
   },

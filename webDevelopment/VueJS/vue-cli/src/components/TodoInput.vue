@@ -3,9 +3,9 @@
     <!-- 2-way binding 스크립트 단과 동기화됨-->
     <input type='text' v-model='newTodoItem' @keyup.enter='addTodo'>
 
-    <button class="addContainer addBtn" v-on:click="addTodo">
+    <button class="addContainer " v-on:click="addTodo">
       <!-- <font-awesome icon="fa-plus" /> -->
-     push
+    <span class="addBtn"  aria-hidden="true">Push</span> 
     </button>
      
       <Modal v-if="showModal" @close="showModal = false">
@@ -64,14 +64,19 @@ input:focus {
 }
 .inputBox input {
   border-style: none;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
 }
 .addContainer {
-  float: right;
-  background: linear-gradient(to right, #6478FB, #8763FB);
-  display: block;
-  width: 3rem;
-  border-radius: 0 5px 5px 0;
+    float: right;
+    background: linear-gradient(to right, #6478FB, #8763FB);
+    display: block;
+    width: 7rem;
+    border-radius: 0 5px 5px 0;
+    border: 0;
+    height: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 .addBtn {
   color: white;

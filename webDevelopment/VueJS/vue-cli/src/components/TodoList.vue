@@ -5,7 +5,7 @@
 <div>
   <ol>
     <!-- 리스트의 인덱스추가 -->
-    <li v-for='(todoItem, index) in propsdata' v-bind:key='todoItem.item'>
+    <li v-for='(todoItem, index) in this.$store.state.todoItems' v-bind:key='todoItem.item'>
       <span class='check' v-bind:class='{checkBtnCompleted: todoItem.completed}'
       @click='toggleComplete(todoItem,index)'></span>
       <span v-bind:class='{textCompleted: todoItem.completed}'>{{todoItem.item}}</span>  
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  props: [ 'propsdata'],//내려보낼 props
+ // props: [ 'propsdata'],//내려보낼 props
   methods:{
     removeTodo(todoItem, index){
       this.$emit('removeItem',todoItem, index)

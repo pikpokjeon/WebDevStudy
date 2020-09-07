@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <todo-header></todo-header>
-    <todo-input v-on:addTodoItem="addOneItem"></todo-input>
+    <!-- <todo-input v-on:addTodoItem="addOneItem"></todo-input> -->
+    <todo-input ></todo-input>
     <todo-list v-bind:propsdata='todoItems' v-on:removeItem="removeOneItem" 
                 v-on:toggle-Item='toggleOneItem'></todo-list>
     <todo-footer v-on:clearAll="clearAllItems"></todo-footer>
@@ -22,38 +23,31 @@ export default { //default라는 익명함수는 import 할 때 이름을 정할
       }
     },
     methods:{
-      addOneItem(todoItem){
-        const obj = {completed:false,item:todoItem};
-        //JSON.stringfy -> 자바스크리트 오브젝트를 변환
-        localStorage.setItem(todoItem,JSON.stringify(obj));//key,value
-        this.todoItems.push(obj);
-      },
-      removeOneItem(todoItem, index){
-        console.log(todoItem,index);
-        localStorage.removeItem(todoItem.item);
-        this.todoItems.splice(index,1);//start, deleteCount 기능후 새로운배열을 반환해줌
+      //store의 mutations
+      // addOneItem(todoItem){
+      //   const obj = {completed:false,item:todoItem};
+      //   //JSON.stringfy -> 자바스크리트 오브젝트를 변환
+      //   localStorage.setItem(todoItem,JSON.stringify(obj));//key,value
+      //   this.todoItems.push(obj);
+      // },
+      // removeOneItem(todoItem, index){
+      //   console.log(todoItem,index);
+      //   localStorage.removeItem(todoItem.item);
+      //   this.todoItems.splice(index,1);//start, deleteCount 기능후 새로운배열을 반환해줌
 
-      },
-      toggleOneItem(todoItem,index){
-        this.todoItems(index).completed = !this.todoItems(index).completed;  
-        //boolean값 갱신
-        localStorage.removeItem(todoItem.item);
-        localStorage.setItem(todoItem.item,JSON.stringify(todoItem));
-      },
-      clearAllItems(){
-        localStorage.clear();
-        this.todoItems = []
-      }
+      // },
+      // toggleOneItem(todoItem,index){
+      //   this.todoItems(index).completed = !this.todoItems(index).completed;  
+      //   //boolean값 갱신
+      //   localStorage.removeItem(todoItem.item);
+      //   localStorage.setItem(todoItem.item,JSON.stringify(todoItem));
+      // },
+      // clearAllItems(){
+      //   localStorage.clear();
+      //   this.todoItems = []
+      // }
     },
-    created: function(){ //인스턴스 생성시점에 돌아가는 로직
-      // 로컬스토레이지 연결 문제있으니 고쳐야함
-      if(localStorage.length>0){
-        for(let i = 0; i < localStorage.length ; i ++){
-          this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
 
-        }
-      }
-    },
   components: {
     //Enhanced Object Literal 때문에 키값:속성값 이름이 같으면 하나만 적어도 됨.
      TodoHeader,

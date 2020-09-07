@@ -31,7 +31,8 @@ export default {
   methods: {
     addTodo: function(){
       if ( this.newTodoItem !==''){
-        this.$emit('addTodoItem' ,this.newTodoItem);
+        // this.$emit('addTodoItem' ,this.newTodoItem);
+        this.$store.commit('addOneItem', this.newTodoItem);//mutation 동작을 위해
         this.clearInput();
       } else {
         this.showModal = !this.showModal;

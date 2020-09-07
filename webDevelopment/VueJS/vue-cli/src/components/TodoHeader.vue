@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1>{{this.$store.state.headerText}} Meow</h1>
+    <h1>Meow to do</h1>
   </header>
 </template>
 

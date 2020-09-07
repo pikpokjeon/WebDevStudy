@@ -16,11 +16,12 @@ import TodoFooter from './components/TodoFooter.vue'
 
 
 export default { //default라는 익명함수는 import 할 때 이름을 정할 수 있다
-    data: function(){
-      return {
-        todoItems: []
-      }
-    },
+    // $store에서 바로 접근해서 getters로 데이터를 가져옴
+    // data: function(){ 
+    //   return {
+    //     todoItems: []
+    //   }
+    // },
     methods:{
       //store의 mutations
       // addOneItem(todoItem){

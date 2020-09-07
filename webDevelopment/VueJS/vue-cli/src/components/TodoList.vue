@@ -3,15 +3,16 @@
 
 <template>
 <div>
-  <ol>
+ <transition-group name="list" tag="ul">
     <!-- 리스트의 인덱스추가 -->
-    <li v-for='(todoItem, index) in this.$store.state.todoItems' v-bind:key='todoItem.item'>
-      <span class='check' v-bind:class='{checkBtnCompleted: todoItem.completed}'
-      @click='toggleComplete(todoItem,index)'></span>
+    <li v-for='(todoItem, index) in this.storedItems' v-bind:key='todoItem.item' class='shadow'>
+      <!-- 완료 버튼 -->
+      <span class='checkBtn ' v-bind:class='{checkBtnCompleted: todoItem.completed}'
+        @click='toggleComplete(todoItem, index)'></span>
       <span v-bind:class='{textCompleted: todoItem.completed}'>{{todoItem.item}}</span>  
-      <button v-on:click='removeTodo(todoItem, index)'> 삭제 </button>
+      <button class="removeBtn" v-on:click='removeTodo(todoItem, index)'> delete </button>
       </li>
-  </ol>
+  </transition-group>
   </div> 
 </template>
 
@@ -20,30 +21,60 @@ export default {
  // props: [ 'propsdata'],//내려보낼 props
   methods:{
     removeTodo(todoItem, index){
-      this.$emit('removeItem',todoItem, index)
-      
+      this.$store.commit('removeOneItem', todoItem, index)
     },
-    toggleComplete(todoItem,index){
-      this.$emit('toggleItem', todoItem, index)
+    toggleComplete(todoItem, index){
+      this.$store.commit('toggleOneItem', todoItem, index)
     }
   },
-
+  computed: {
+    storedItems(){
+      return this.$store.getters.getTodoItems;
+    }
+  }
   }
 
 </script>
 
 <style scoped>
-.check{
-  width: 50px;
-  padding: 10px;
-  background-color: blueviolet;
-  margin: 10px;
+ul {
+  list-style-type: none;
+  padding-left: 0px;
+  margin-top: 0;
+  text-align: left;
 }
-li{
-      display: block;
-    margin: 21px;
-    background-color:white;
-    
+li {
+  display: flex;
+  min-height: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: 0.5rem 0;
+  padding: 0 0.9rem;
+  background: white;
+  border-radius: 5px;
 }
-
+.checkBtn {
+  line-height: 45px;
+  color: #62acde;
+  margin-right: 5px;
+}
+.checkBtnCompleted {
+  color: #b3adad;
+}
+.textCompleted {
+  text-decoration: line-through;
+  color: #b3adad;
+}
+.removeBtn {
+  margin-left: auto;
+  color: #de4343;
+}
+/* transition css */
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
 </style>

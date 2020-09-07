@@ -25,6 +25,11 @@ export const store = new Vuex.Store({
   state : {
     todoItems: storage.fetch()
   },
+  getters : { //computed와 같은 것
+    getTodoItems(state) {
+      return this.state.todoItems;
+    }
+  },
   mutations: { 
 
     // 전송되는 데이터 인자값은 보통 payload 로 많이 쓴다

@@ -27,7 +27,7 @@ export const store = new Vuex.Store({
   },
   getters : { //computed와 같은 것
     getTodoItems(state) {
-      return this.state.todoItems;
+      return state.todoItems;
     }
   },
   mutations: { 

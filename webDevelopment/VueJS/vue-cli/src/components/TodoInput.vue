@@ -3,7 +3,7 @@
     <!-- 2-way binding 스크립트 단과 동기화됨-->
     <input type='text' v-model='newTodoItem' @keyup.enter='addTodo'>
 
-    <button class="addContainer" v-on:click="addTodo">
+    <button class="addContainer addBtn" v-on:click="addTodo">
       <!-- <font-awesome icon="fa-plus" /> -->
      push
     </button>

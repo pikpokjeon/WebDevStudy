@@ -3,9 +3,8 @@
     <todo-header></todo-header>
     <!-- <todo-input v-on:addTodoItem="addOneItem"></todo-input> -->
     <todo-input ></todo-input>
-    <todo-list v-bind:propsdata='todoItems' v-on:removeItem="removeOneItem" 
-                v-on:toggle-Item='toggleOneItem'></todo-list>
-    <todo-footer v-on:clearAll="clearAllItems"></todo-footer>
+    <todo-list ></todo-list>
+    <todo-footer ></todo-footer>
   </div>
 </template>
 
@@ -60,19 +59,18 @@ export default { //default라는 익명함수는 import 할 때 이름을 정할
 </script>
 
 <style>
-  body {
-    text-align : center;
-    background-color: #f6f6f6;
-  }
-  input {
-    border-style : groove;
-    width: 200px;
-  }
-  button {
-    border-style: groove;
-
-  }
-  .shadow {
-    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.03);
-  }
+body {
+  text-align: center;
+  background-color: #F6F6F8;
+}
+input {
+  border-style: groove;
+  width: 200px;
+}
+button {
+  border-style: groove;
+}
+.shadow {
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.03)
+}
 </style>

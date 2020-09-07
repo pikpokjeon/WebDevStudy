@@ -26,23 +26,27 @@ export const store = new Vuex.Store({
     todoItems: storage.fetch()
   },
   mutations: { 
+
+    // 전송되는 데이터 인자값은 보통 payload 로 많이 쓴다
+
     addOneItem(state, todoItem){
-      const obj = {completed:false,item:todoItem};
+      const obj = {completed:false, item:todoItem}; //실질적으로 저장되는 todoItem
       //JSON.stringfy -> 자바스크리트 오브젝트를 변환
-      localStorage.setItem(todoItem,JSON.stringify(obj));//key,value
-      state.todoItems.push(obj);
+      localStorage.setItem(todoItem, JSON.stringify(obj));//key,value
+      state.todoItems.push(obj); //실질적으로 저장되는 todoItem
     },
-    removeOneItem(state, index){
-      console.log(state,index);
+    removeOneItem(state, payload){
+      console.log(state,payload);
       localStorage.removeItem(state.item);
-      state.todoItems.splice(index,1);//start, deleteCount 기능후 새로운배열을 반환해줌
+      state.todoItems.splice(payload.index, 1);//start, deleteCount 기능후 새로운배열을 반환해줌
 
     },
-    toggleOneItem(state,index){
-      state.todoItems[index].completed = !state.todoItems(index).completed;  
+    toggleOneItem(state, payload){
+      console.log(payload);
+      state.todoItems[payload.index].completed = !state.todoItems[payload.index].completed;  
       //boolean값 갱신
-      localStorage.removeItem(state.item);
-      localStorage.setItem(todoItem.item,JSON.stringify(todoItem));
+      localStorage.removeItem(payload.todoItem.item);
+      localStorage.setItem(payload.todoItem.item ,JSON.stringify(payload.todoItem));
     },
     clearAllItems(){
       localStorage.clear();

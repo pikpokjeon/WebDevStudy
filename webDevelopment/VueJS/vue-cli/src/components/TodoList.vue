@@ -10,7 +10,7 @@
       <span class='checkBtn ' v-bind:class='{checkBtnCompleted: todoItem.completed}'
         @click='toggleComplete(todoItem, index)'></span>
       <span v-bind:class='{textCompleted: todoItem.completed}'>{{todoItem.item}}</span>  
-      <button class="removeBtn" v-on:click='removeTodo(todoItem, index)'> delete </button>
+      <button class="removeBtn" v-on:click='removeTodo(todoItem, index)'> x </button>
       </li>
   </transition-group>
   </div> 
@@ -54,20 +54,29 @@ li {
   border-radius: 5px;
 }
 .checkBtn {
-  line-height: 45px;
-  color: #62acde;
-  margin-right: 5px;
+width: 30px;
+    height: 100%;
+    line-height: 45px;
+    color: #62acde;
+    margin-right: 18px;
+     background: #f7f1f1;
+    margin-left: 0;
 }
 .checkBtnCompleted {
-  color: #b3adad;
+background: #cecece;
 }
 .textCompleted {
   text-decoration: line-through;
-  color: #b3adad;
+background: #cecece;
 }
 .removeBtn {
-  margin-left: auto;
-  color: #de4343;
+    margin-left: auto;
+    color: #d4d4d4;
+    background: none;
+    border: 0;
+    font-size: 1.5em;
+    font-family: ui-rounded;
+    font-weight: 800;
 }
 /* transition css */
 .list-enter-active, .list-leave-active {

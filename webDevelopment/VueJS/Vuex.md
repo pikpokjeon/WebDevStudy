@@ -70,7 +70,8 @@ new Vue({
 - action (event emitted) -> dispatcher (modify data) -> model (the data) -> view (show in client view) 
 
 ## Helper 함수
-### Store의 4가지 속성들을 간편히 사용하게 해준다
+### Vuex에 선언한 (state, getters, actions, mutations) 속성을 Vue Component에 쉽게 연결해준다.
+### 기존의 함수와 함께 사용하기 위해 Spread Operator를 사용한다. (객체 내부 값을 다 꺼내온다)
 
 1. state -> mapState
 ```javascript
@@ -85,6 +86,22 @@ computed(){
 ```
 
 1. getters -> mapGetters
+```javascript
+//App.vue
+computed(){
+  ...mapGetters(['reverseMsg']) // num(){ return this.$store.state.num}
+}
+//store.js
+getters: {
+  reverseMsg{
+    return state.msg.split('').reverse().join('')
+  }
+}
+```
+```html
+<!-- {{ this.$store.getters.reverseMsg}} -->
+<p>{{this.reverseMsg}}</p>
+```
 
 1. mutations -> mapMutations
 

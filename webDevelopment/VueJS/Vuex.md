@@ -73,6 +73,16 @@ new Vue({
 ### Store의 4가지 속성들을 간편히 사용하게 해준다
 
 1. state -> mapState
+```javascript
+//App.vue
+computed(){
+  ...mapState(['num']) // num(){ return this.$store.state.num}
+}
+```
+```html
+<!-- {{ this.$store.state.num}} -->
+<p>{{this.num}}</p>
+```
 
 1. getters -> mapGetters
 

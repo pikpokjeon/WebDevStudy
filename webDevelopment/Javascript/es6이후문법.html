@@ -9,7 +9,17 @@
   
 
   <script>
-    
+    // Objext Spread Operator
+
+    const yaejin = {
+      field : 'Frontend',
+      language : 'JS'
+    };
+    const developer = {
+      nation : 'Korea',
+      ...yaejin //속성들을 다 들고옴.
+    };
+    console.log(developer);
 
 
 

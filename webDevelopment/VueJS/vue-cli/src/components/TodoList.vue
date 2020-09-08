@@ -34,9 +34,10 @@ export default {
     }
   },
   computed: {
-    storedItems(){
-      return this.$store.getters.getTodoItems;
-    }
+    // storedItems(){
+    //   return this.$store.getters.getTodoItems;
+    // }
+    ...mapGetters(['getTodoItems']) // 배열 리터럴
   },
   }
 

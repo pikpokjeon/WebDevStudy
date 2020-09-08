@@ -106,3 +106,21 @@ getters: {
 1. mutations -> mapMutations
 
 1. actions -> mapActions
+
+### Helper의 유연한 문법
+1. Vuex에 선언한 속성을 그대로 컴포넌트에 연결하는 문법
+- 배열 리터럴
+```javascript
+...mapMutations([
+  'clickBtn', // 'clickBtn'(key) : clickbtn (value)
+  'addNum' // addNum(인자)  
+])
+```
+1. Vuex에 선언한 속성을 컴포넌트의 특정 메서드에다 연결
+- 객체 리터럴 (메서드 이름을 다르게 하는경우 사용)
+```javascript
+...mapMutations([
+  // 컴포넌트 메서드명 : store 뮤테이션 명
+  pushButton : 'clickBtn' 
+])
+```

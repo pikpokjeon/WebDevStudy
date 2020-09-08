@@ -17,21 +17,27 @@
 </template>
 
 <script>
+import {mapGetters, mapMutations} from 'vuex'
+
 export default {
  // props: [ 'propsdata'],//내려보낼 props
   methods:{
+    // ...mapMutations({
+      // removeTodo: 'removeOneItem',
+      // toggleComplete: 'toggleOneItem'
+    // })
     removeTodo(todoItem, index){
-      this.$store.commit('removeOneItem', todoItem, index)
+      this.$store.commit('removeOneItem', {todoItem, index})
     },
     toggleComplete(todoItem, index){
-      this.$store.commit('toggleOneItem', todoItem, index)
+      this.$store.commit('toggleOneItem', {todoItem, index})
     }
   },
   computed: {
     storedItems(){
       return this.$store.getters.getTodoItems;
     }
-  }
+  },
   }
 
 </script>

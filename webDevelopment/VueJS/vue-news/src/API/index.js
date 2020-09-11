@@ -10,6 +10,7 @@ const fetchNewsList = () => {
   // return axios.get(config.baseUrl + 'news/1.json');
   return axios.get(`${config.baseUrl}news/1.json`);
 }
+
 const fetchJobsList = () => {
   return axios.get(`${config.baseUrl}jobs/1.json`);
 }
@@ -23,6 +24,9 @@ const fetchCommentItem = (param) => {
   return axios.get(`${config.baseUrl}item/${param}.json`);
 
 }
+const fetchList = (pageName) => {
+  return axios.get(`${config.baseUrl}${pageName}/1.json`)
+}
 // fetchNewsList()
 //   .then()
 
@@ -31,5 +35,6 @@ export {
   fetchJobsList,
   fetchAskList,
   fetchUserInfo,
-  fetchCommentItem  
+  fetchCommentItem  ,
+  fetchList
 }

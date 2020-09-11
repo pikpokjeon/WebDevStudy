@@ -3,18 +3,21 @@ import {   fetchNewsList,
            fetchJobsList,
            fetchAskList,
            fetchUserInfo,
-           fetchCommentItem
+           fetchCommentItem,
+           fetchList
         } from '../API/index.js';
 
 export default {
   FETCH_NEWS(context){
-    fetchNewsList()
-      .then(res => {
-        console.log(res);
-        context.commit('SET_NEWS', res.data);
-      })
-      .catch(err => console.log(err)
-      )},
+    console.log("step call fetchNewsList");
+    fetchNewsList(context).then(res => {
+      console.log(res);
+      context.commit('SET_NEWS', res.data);
+      return res; //promise 객체를 반환한다.
+    })
+    .catch(err => console.log(err)
+    );
+  },
 
   FETCH_ASK(context){
     fetchAskList()
@@ -39,6 +42,10 @@ export default {
        fetchCommentItem(item)
        .then( ({data}) => commit('SET_ITEM', data))
        .catch(err => console.log(err));
-     }
-
+     },
+     FETCH_LIST( {commit}, pageName){
+        fetchList(pageName)
+        .then(({data}) => commit('SET_LIST', data))
+        .catch(err => console.log(err));
+      }
     }

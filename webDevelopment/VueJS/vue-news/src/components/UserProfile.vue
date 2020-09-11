@@ -5,12 +5,29 @@
           <i class="fas fa-user"></i>
         </div>
         <div class="user-description">
-          <div>
-            {{ info.id }}
+          <slot name="username">
+              <!-- 상위 컴포넌트에서 정의할 영역 -->
+          </slot>
+
+          <!-- <router-link :to="`/user/${fetchedItem.user}`">
+          {{ fetchedItem.user }}
+          </router-link> -->
+          <!-- <template v-if="info.id">
+            <div>
+              {{ info.id }}
+            </div>
+          </template>
+          <template v-else>
+            <div>
+              {{ info.user }}
+            </div>
+          </template> -->
+          <div div class="time">
+            <slot name="time">
+              <!-- 상위 컴포넌트에서 정의할 영역 -->
+            </slot>
           </div>
-          <div class="time">
-            {{ info.created }}
-          </div>
+          <slot name="karma"></slot>
           <!-- <router-link :to="`/user/${userInfo.user}`">
           </router-link> -->
         </div>  

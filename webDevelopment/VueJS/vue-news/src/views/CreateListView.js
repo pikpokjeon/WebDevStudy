@@ -4,7 +4,7 @@ export default function createListView(name) {
 
   return {
     // 재사용할 컴포넌트 (인스터스) 옵션들이 들어갈 자리
-    name: name,
+    name: 'HOCComponent',
     created() {
       //아래 이름으로 이벤트 발생 (액션)
       bus.$emit('start:spinner'); 
@@ -19,6 +19,8 @@ export default function createListView(name) {
       },3000)
     },
     render(createElement) {
+      console.log(createElement);
+      console.log(ListView);
       return createElement(ListView);
     },
   }

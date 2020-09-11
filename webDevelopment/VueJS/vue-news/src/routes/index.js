@@ -5,7 +5,7 @@ import AskView from '../views/AskView.vue'
 import JobsView from '../views/JobsView.vue'
 import ItemView from '../views/ItemView.vue'
 import UserView from '../views/UserView.vue'
-import CLV from '../views/CreateListView'
+// import CLV from '../views/CreateListView'
 
 Vue.use(VueRouter);
 
@@ -21,18 +21,21 @@ export const router = new VueRouter({
         path: '/news',
         name: 'news',
         // url로 갔을 때 보여지는 컴포넌트
-        component: CLV('NewsView'), 
+        // component: CLV('NewsView'), 
+        component: NewsView,
       },
       {
         path: '/ask',
         name: 'ask',
-        component: CLV('AskView'), 
+        component: AskView,
+        // component: CLV('AskView'), 
 
       },
       {
         path: '/jobs',
         name: 'jobs',
-        component: CLV('JobsView'), 
+        component: JobsView,
+        // component: CLV('JobsView'), 
       },
       {
         path: '/user/:id',

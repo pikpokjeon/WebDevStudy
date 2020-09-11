@@ -19,7 +19,7 @@ export default {
   color:white;
   background-color: #42b883;
   display:flex;
-  padding: 8px;
+  padding: 15px;
 }
 .header .router-link-active {
 color:black;

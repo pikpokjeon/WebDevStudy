@@ -8,26 +8,30 @@
           <slot name="username">
               <!-- 상위 컴포넌트에서 정의할 영역 -->
           </slot>
+           <router-link :to="`/user/${info.user}`">
+            {{ info.user }}
+          </router-link> 
 
-          <!-- <router-link :to="`/user/${fetchedItem.user}`">
-          {{ fetchedItem.user }}
-          </router-link> -->
-          <!-- <template v-if="info.id">
-            <div>
+          <template v-if="info.id">
+            <div class="info.id">
               {{ info.id }}
             </div>
           </template>
+          
           <template v-else>
-            <div>
+            <div class="info.user">
               {{ info.user }}
             </div>
-          </template> -->
+          </template> 
+          
           <div div class="time">
             <slot name="time">
               <!-- 상위 컴포넌트에서 정의할 영역 -->
             </slot>
           </div>
-          <slot name="karma"></slot>
+          <slot name="karma">
+              <!-- 상위 컴포넌트에서 정의할 영역 -->
+          </slot>
           <!-- <router-link :to="`/user/${userInfo.user}`">
           </router-link> -->
         </div>  
@@ -41,6 +45,11 @@ export default {
     //내려온 info props데이터는 object이다
     info: Object
   },
+  // computed: {
+  //   userInfo() {
+  //     return this.$store.state.user;
+  //   }
+  // },
 
 }
 </script>

@@ -41,38 +41,15 @@
 <script>
 // import { mapState} from 'vuex'
 import ListItem from '../components/ListItem.vue';
-import bus from '../utils/bus';
+// import bus from '../utils/bus';
+import ListMixin from '../mixins/ListMixin';
+
 export default {
   components: {
     ListItem
     },
-    created() {
-      //아래 이름으로 이벤트 발생 (액션)
-      bus.$emit('start:spinner'); 
-      setTimeout(()=> {
-        this.$store.dispatch('FETCH_NEWS')
-        .then(()=> {
-          console.log('fetched');
-          bus.$emit('end:spinner');           
-        })
-        .catch(err => console.log(err));
-
-      },3000);
-      
-    },
-
-// computed: {
-  //   ...mapState({
-  //     news: state => state.news
-  //   })
-  // },
-  // created() {
-    // this.$store.dispatch('FETCH_NEWS'); // Component to Actions
- // 1
-  // fetchNewsList()    
-  //     .then(res => this.users = res.data)
-  //     .catch(err => console.log(err));
-  // },
+  mixins: [ListMixin], //mixin으로 사용
+   
 }
 </script>
 <style scoped>

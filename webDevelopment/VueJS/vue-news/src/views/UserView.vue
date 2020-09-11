@@ -20,13 +20,13 @@ export default {
   },
   computed: {
     userInfo() {
-      return this.$store.state.user;
+      return this.$store.state.user; 
     }
   },
   created() {
     // console.log(this.$route.params.id);
     const userName = this.$route.params.id;
-    this.$store.dispatch('FETCH_USER', userName);
+    this.$store.dispatch('FETCH_USER', userName); //  데이터를 불러옴
   },
 }
 </script>

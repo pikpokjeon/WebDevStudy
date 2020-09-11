@@ -10,11 +10,14 @@
 <script>
 // import { mapState, mapGetters} from 'vuex'
 import ListItem from '../components/ListItem.vue';
+import ListMixin from '../mixins/ListMixin'
 
 export default {
   components: {
     ListItem
     },
+  mixins: [ListMixin],  
+  
   // computed: {
   //   ...mapGetters([
   //     'fetchedJobs'

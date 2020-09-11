@@ -16,24 +16,14 @@
 
 // import { mapGetters} from 'vuex'
 import ListItem from '../components/ListItem.vue';
+import ListMixin from '../mixins/ListMixin'
 
 export default {
  components: {ListItem},
- computed: {
-    // ...mapGetters([
-    //   'fetchedAsk'
-    // ])
-    // ...mapGetters({
-    //   fetchedAsk
-    // })
-    // ...mapState({
-    //   ask: state => state.ask
-    // })
-  },
-  created() {
-    // this.$store.dispatch('FETCH_ASK');
-  },
-}
+  mixins: [ListMixin],
+
+  }
+
 </script>
 <style scoped>
 

@@ -1,6 +1,7 @@
 <template>
 <div>
-  <ol class ="news-list">
+  <list-item></list-item>
+  <!-- <ol class ="news-list">
     <li class="post" v-for="item in news">
       
       <div class= "points">
@@ -20,7 +21,7 @@
       
       
     </li>
-  </ol>
+  </ol> -->
   <div>
   <!-- <p v-for="item in news"> 
     <a v-bind:href="item.url">
@@ -35,50 +36,31 @@
   </div>
 
 </div>  
+
 </template>
 <script>
-import { mapState} from 'vuex'
+// import { mapState} from 'vuex'
+import ListItem from '../components/ListItem.vue';
+
 export default {
-  computed: {
-    ...mapState({
-      news: state => state.news
-    })
-  },
-  created() {
-    this.$store.dispatch('FETCH_NEWS'); // Component to Actions
+  components: {
+    ListItem
+    },
+
+// computed: {
+  //   ...mapState({
+  //     news: state => state.news
+  //   })
+  // },
+  // created() {
+    // this.$store.dispatch('FETCH_NEWS'); // Component to Actions
  // 1
   // fetchNewsList()    
   //     .then(res => this.users = res.data)
   //     .catch(err => console.log(err));
-  },
+  // },
 }
 </script>
 <style scoped>
-.news-list {
-  list-style: none;
-}
-.points {
-  width:80px;
-  height:60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #42b883;
-}
-.post {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-}
-.news-title {
-  margin:0;
-}
-.link-text{
-  color:slateblue;
-}
-a { 
-  text-decoration: none;
-}
 
 </style>

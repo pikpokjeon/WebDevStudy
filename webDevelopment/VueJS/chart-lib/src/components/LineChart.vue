@@ -1,15 +1,15 @@
 <template>
-<canvas id="myChart2" width="400" height="400"></canvas>
+<canvas ref ="linechart" id="myChart2" width="400" height="400"></canvas>
 
 </template>
 
 <script>
-import Chart from 'chart.js';
 
 export default {
 mounted() { //라이프사이클 훅
-  var ctx = document.getElementById('myChart2').getContext('2d');
-  var myChart = new Chart(ctx, { // eslint-disable-line no-unused-vars
+  var ctx = this.$refs.linechart.getContext('2d');
+//   var ctx = document.getElementById('myChart2').getContext('2d');
+  var myChart = new this.$_Chart(ctx, { // eslint-disable-line no-unused-vars
       type: 'line',
       data: {
           labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],

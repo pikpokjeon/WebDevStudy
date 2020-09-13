@@ -20,9 +20,12 @@ const fetchAskList = () => {
 const fetchUserInfo = (username) => {
   return axios.get(`${config.baseUrl}user/${username}.json`);
 }
-const fetchCommentItem = (param) => {
-  return axios.get(`${config.baseUrl}item/${param}.json`);
-
+async function fetchCommentItem = (param) => {
+  try{
+    return await axios.get(`${config.baseUrl}item/${param}.json`);
+  } catch (err) {
+    console.log(err);
+  }
 }
 const fetchList = (pageName) => {
   return axios.get(`${config.baseUrl}${pageName}/1.json`)

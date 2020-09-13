@@ -43,9 +43,13 @@ export default {
         .then( ({data}) => commit('SET_ITEM', data))
         .catch(err => console.log(err));
      },
-     FETCH_LIST( {commit}, pageName){
-        fetchList(pageName)
-          .then(({data}) => commit('SET_LIST', data))
-          .catch(err => console.log(err));
+
+     async FETCH_LIST( {commit}, pageName){
+      try{
+        const res =  await fetchList(pageName);
+        commit('SET_LIST',res.data);
+        return res;
+      } catch(err) {
+        console.log(err);
       }
     }

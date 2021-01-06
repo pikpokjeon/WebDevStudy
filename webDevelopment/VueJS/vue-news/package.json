@@ -11,7 +11,7 @@
     "eslint-loader": "2.1.2"
   },
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "cache-loader": "^4.1.0",
     "core-js": "^3.6.5",
     "eslint-loader": "^2.1.2",
